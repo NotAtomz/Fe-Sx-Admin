@@ -441,11 +441,16 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         -------------------------------------------
         Commands (Prefix = /):
             [!] R6 Only May Work On R15
+            [!] There May Be Some Bugs
+            [.] = client commands
+            [?] = in development
             [*] = requires tool
             *kill/void [target]
             *hold [target]
             *grabknife/grab [target] -- click to kill
             *bring [target]
+            *,?punish [target]
+            *,?kick [target]
             *bang [target]
             *carry [target]
             *control [target]
@@ -453,7 +458,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             *toolflingall
             loopflingall
             fling [target]
-            netlag/netsleep [target]
+            .,?ban [target]
+            .netlag/netsleep [target]
             unnetlag/unnetsleep [target]
             goto/to [target]
             noclip/nc
@@ -477,7 +483,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                    oOO                 OOo             
                oOO                         OOo         
             oOO                               OOo      
-          oOO                                   OOo    
+          oOO            ___________            OOo    
         oOO             |\          |            OOo   
        oOO              | \         |             OOo  
       oOO               |  \        |              OOo 
@@ -488,7 +494,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
      oOO                |       \   |               OOo
       oOO               |        \  |              OOo 
        oOO              |         \ |             OOo  
-        oOO             |          \|            OOo   
+        oOO             |___________|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
@@ -516,7 +522,7 @@ print([[
                    oOO                 OOo             
                oOO                         OOo         
             oOO                               OOo      
-          oOO                                   OOo    
+          oOO            ___________            OOo    
         oOO             |\          |            OOo   
        oOO              | \         |             OOo  
       oOO               |  \        |              OOo 
@@ -527,7 +533,7 @@ print([[
      oOO                |       \   |               OOo
       oOO               |        \  |              OOo 
        oOO              |         \ |             OOo  
-        oOO             |          \|            OOo   
+        oOO             |___________|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
@@ -536,6 +542,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
+              Version 2.1.0 Fe Script Admin Script
                        Say /cmds to begin    
      --------------------------------------------------
 ]])
