@@ -181,7 +181,7 @@ end)
 
 local cc;cc = plr.Chatted:Connect(function(msg)
     local spaceSplit = msg:split(" ")
-    if spaceSplit[1] == "/bring" then
+    if spaceSplit[1] == "bring" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -191,7 +191,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         tool.AncestryChanged:Wait()
         wait(.25)
         attWeld:Destroy()
-    elseif spaceSplit[1] == "/control" then
+    elseif spaceSplit[1] == "control" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -207,7 +207,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/uncontrol" then
+    elseif spaceSplit[1] == "uncontrol" then
         if getChar()["Right Arm"]:FindFirstChild("RightGrip") then
             getChar()["Right Arm"]:FindFirstChild("RightGrip"):Destroy()
             getChar().Humanoid.HipHeight = 0
@@ -215,7 +215,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             getChar().Animate.Disabled = false
             getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,-90,0)
         end
-    elseif spaceSplit[1] == "/hold" then
+    elseif spaceSplit[1] == "hold" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -232,7 +232,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/carry" then
+    elseif spaceSplit[1] == "c!carry" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -241,7 +241,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/void" or spaceSplit[1] == "/kill" then
+    elseif spaceSplit[1] == "void" or spaceSplit[1] == "kill" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -259,7 +259,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         attWeld:Destroy()
         wait(.5)
         getChar().HumanoidRootPart.CFrame = old
-    elseif spaceSplit[1] == "/grabknife" or spaceSplit[1] == "/grab" then
+    elseif spaceSplit[1] == "grabknife" or spaceSplit[1] == "grab" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         local knife = getChar():FindFirstChild("Red SS") or getChar():FindFirstChild("White SS") or getChar():FindFirstChild("Yellow SS") or getChar():FindFirstChild("Purple SS")
@@ -293,7 +293,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             plr.CharacterAdded:Wait()
             getChar():WaitForChild("HumanoidRootPart").CFrame = old
         end)
-    elseif spaceSplit[1] == "/bang" then
+    elseif spaceSplit[1] == "bang" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -311,27 +311,27 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/walkspeed" or spaceSplit[1] == "/ws" then
+    elseif spaceSplit[1] == "walkspeed" or spaceSplit[1] == "ws" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.WalkSpeed = val
-    elseif spaceSplit[1] == "/jumppower" or spaceSplit[1] == "/jp" then
+    elseif spaceSplit[1] == "jumppower" or spaceSplit[1] == "jp" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.JumpPower = val
-    elseif spaceSplit[1] == "/hipheight" or spaceSplit[1] == "/hh" then
+    elseif spaceSplit[1] == "hipheight" or spaceSplit[1] == "hh" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.HipHeight = val
-    elseif spaceSplit[1] == "/noclip" or spaceSplit[1] == "/nc" then
+    elseif spaceSplit[1] == "noclip" or spaceSplit[1] == "nc" then
         nc = true
-    elseif spaceSplit[1] == "/clip" or spaceSplit[1] == "/c" then
+    elseif spaceSplit[1] == "clip" or spaceSplit[1] == "c" then
         nc = false
-    elseif spaceSplit[1] == "/goto" or spaceSplit[1] == "/to" then
+    elseif spaceSplit[1] == "goto" or spaceSplit[1] == "to" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart
-    elseif spaceSplit[1] == "/respawn" or spaceSplit[1] == "/re" then
+    elseif spaceSplit[1] == "respawn" or spaceSplit[1] == "re" then
         local c = getChar()
         plr.Character = nil
         plr.Character = c
@@ -340,13 +340,13 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         c.Humanoid.Health = 0
         plr.CharacterAdded:Wait()
         getChar():WaitForChild("HumanoidRootPart").CFrame = old
-    elseif spaceSplit[1] == "/equiptools" then
+    elseif spaceSplit[1] == "equiptools" then
         for i,v in pairs(getBp():GetChildren()) do
             if v:IsA("Tool") then
                 v.Parent = getChar()
             end
         end
-    elseif spaceSplit[1] == "/fling" then
+    elseif spaceSplit[1] == "fling" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
@@ -409,11 +409,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
-    elseif spaceSplit[1] == "/toolflingall" then
+    elseif spaceSplit[1] == "toolflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Tool%20Loop%20Fling%20All"))()
-    elseif spaceSplit[1] == "/loopflingall" then
+    elseif spaceSplit[1] == "loopflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/loop%20fling%20all"))()
-    elseif spaceSplit[1] == "/netlag" or spaceSplit[1] == "/netsleep" then
+    elseif spaceSplit[1] == "netlag" or spaceSplit[1] == "netsleep" then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             for i,v in pairs(players:Getplayers()) do
                 if v ~= plr then
@@ -425,7 +425,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         table.insert(netsleepTargets,target)
-    elseif spaceSplit[1] == "/unnetlag" or spaceSplit[1] == "/unnetsleep"  then
+    elseif spaceSplit[1] == "unnetlag" or spaceSplit[1] == "unnetsleep"  then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             netsleepTargets = {}
             return
@@ -433,49 +433,77 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil or table.find(netsleepTargets,target) == nil then return end
         table.remove(netsleepTargets,table.find(netsleepTargets,target))
-    elseif spaceSplit[1] == "/rejoin" or spaceSplit[1] == "/rj" then
+    elseif spaceSplit[1] == "rejoin" or spaceSplit[1] == "rj" then
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
-    elseif spaceSplit[1] == "/cmds" then
+    elseif spaceSplit[1] == "cmds" then
         print([[
         
         -------------------------------------------
-        Commands (Prefix = /):
-            [!] R6 Only May Work On R15
-            [!] There May Be Some Bugs
-            [.] = client commands
-            [?] = in development
-            [*] = requires tool
-            *kill/void [target]
-            *hold [target]
-            *grabknife/grab [target] -- click to kill
-            *bring [target]
-            *,?punish [target]
-            *,?kick [target]
-            *bang [target]
-            *carry [target]
-            *control [target]
-            uncontrol
-            *toolflingall
-            loopflingall
-            fling [target]
-            .,?ban [target]
-            .netlag/netsleep [target]
-            unnetlag/unnetsleep [target]
-            goto/to [target]
-            noclip/nc
-            clip/c
-            rejoin/rj
-            respawn/re
-            equiptools
-            hipheight/hh [number]
-            walkspeed/ws [number]
-            jumppower/jp [number]
-            cmds
-            info
-            stopadmin
+        |  Commands (Prefix = No Prefix):
+        |
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        |    [!] R6 Only May Work On R15
+        |    [!] Must Have Tools
+        |    [!] There May Be Some Bugs
+        |    [.] = client commands
+        |    [?] = in development
+        |    [*] = requires tool
+        |    
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        |    *kill [target]
+        |    *void [target]
+        |    *hold [target]
+        |    *grabknife [target]
+        |    *grab [target] -- click to kill
+        |    *bring [target]
+        |    *,?punish [target]
+        |    *,?kick [target]
+        |    *bang [target]
+        |    *,?benx [target]
+        |    *carry [target]
+        |    *control [target]
+        |    uncontrol
+        |    *toolflingall
+        |    
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        |    loopflingall
+        |    fling [target]
+        |    .,?ban [target]
+        |    .netlag [target]
+        |    .netsleep [target]
+        |    unnetlag [target]
+        |    unnetsleep [target]
+        |    goto [target]
+        |    to [target]
+        |    noclip
+        |    nc
+        |    clip
+        |    c
+        |    rejoin
+        |    rj
+        |    respawn
+        |    re
+        |    equiptools
+        |    hipheight [number]
+        |    hh [number]
+        |    walkspeed [number] 
+        |    ws [number]
+        |    jumppower [number]
+        |    jp [number]
+        |    cmds
+        |    info
+        |    stopadmin
+        |    
+        =============================================
         -------------------------------------------
         ]])
-    elseif spaceSplit[1] == "/info" then
+    elseif spaceSplit[1] == "info" then
         print([[
         
      --------------------------------------------------
@@ -494,7 +522,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
      oOO                |       \   |               OOo
       oOO               |        \  |              OOo 
        oOO              |         \ |             OOo  
-        oOO             |___________|            OOo   
+        oOO             |__________\|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
@@ -505,11 +533,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                      Credits To Some People
              To Many People To Give Credits So Yeah
                 Made With Synapse X Ace Editor
-               Version 2.0.2 Fe Script Admin Script
+               Version 2.1.2 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin    
      --------------------------------------------------
         ]])
-    elseif spaceSplit[1] == "/stopadmin" then
+    elseif spaceSplit[1] == "stopadmin" then
         cc:Disconnect()
         nsLoop:Disconnect()
         ncLoop:Disconnect()
@@ -533,7 +561,7 @@ print([[
      oOO                |       \   |               OOo
       oOO               |        \  |              OOo 
        oOO              |         \ |             OOo  
-        oOO             |___________|            OOo   
+        oOO             |__________\|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
@@ -542,7 +570,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.1.0 Fe Script Admin Script
-                       Say /cmds to begin    
+              Version 2.1.2 Fe Script Admin Script
+                       Say cmds to begin    
      --------------------------------------------------
 ]])
