@@ -444,7 +444,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         =============================================
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
-	|
+        |
         |    [!] R6 Only May Work On R15
         |    [!] Must Have Tools
         |    [!] There May Be Some Bugs
@@ -455,7 +455,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         =============================================
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
-	|
+        |
         |    *kill [target]
         |    *void [target]
         |    *hold [target]
@@ -474,7 +474,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         =============================================
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
-	|
+        |
         |    loopflingall
         |    fling [target]
         |    .,?ban [target]
@@ -504,8 +504,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    stopadmin
         |    
         =============================================
-       	|||||||||||||||||||||||||||||||||||||||||||||
-       	=============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
         -------------------------------------------
         ]])
     elseif spaceSplit[1] == "info" then
@@ -517,17 +517,17 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                oOO                         OOo         
             oOO                               OOo      
           oOO            ___________            OOo    
-        oOO             |\          |            OOo   
-       oOO              | \         |             OOo  
-      oOO               |  \        |              OOo 
-     oOO                |   \       |               OOo
-     oOO                |    \      |               OOo
-     oOO                |     \     |               OOo
-     oOO                |      \    |               OOo
-     oOO                |       \   |               OOo
-      oOO               |        \  |              OOo 
-       oOO              |         \ |             OOo  
-        oOO             |__________\|            OOo   
+        oOO             |\                       OOo   
+       oOO              | \                       OOo  
+      oOO               |  \                       OOo 
+     oOO                |   \                       OOo
+     oOO                |____\______                OOo
+     oOO                      \     |               OOo
+     oOO                       \    |               OOo
+     oOO                        \   |               OOo
+      oOO                        \  |              OOo 
+       oOO                        \ |             OOo  
+        oOO              __________\|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
@@ -556,17 +556,17 @@ print([[
                oOO                         OOo         
             oOO                               OOo      
           oOO            ___________            OOo    
-        oOO             |\          |            OOo   
-       oOO              | \         |             OOo  
-      oOO               |  \        |              OOo 
-     oOO                |   \       |               OOo
-     oOO                |    \      |               OOo
-     oOO                |     \     |               OOo
-     oOO                |      \    |               OOo
-     oOO                |       \   |               OOo
-      oOO               |        \  |              OOo 
-       oOO              |         \ |             OOo  
-        oOO             |__________\|            OOo   
+        oOO             |\                       OOo   
+       oOO              | \                       OOo  
+      oOO               |  \                       OOo 
+     oOO                |   \                       OOo
+     oOO                |____\______                OOo
+     oOO                      \     |               OOo
+     oOO                       \    |               OOo
+     oOO                        \   |               OOo
+      oOO                        \  |              OOo 
+       oOO                        \ |             OOo  
+        oOO              __________\|            OOo   
           oOO                                   OOo    
             oO                                OOo      
                oOO                         OOo         
