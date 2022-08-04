@@ -26,6 +26,17 @@ and im adding a if de obfucated you will be blacklisted
 
 ]]--
 
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Script Has Loaded";
+	Text = "To See Commands Prss F9 Or Type /console";
+})
+
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "Thank you for using SX Admin FE, Made By tubers93#4764, Type Cmds To View Commands In Console";
+    Font = Enum.Font.SourceSansBold;
+    Color = Color3.fromRGB(255, 0, 255);
+})
+
 local players = game:GetService("Players")
 local plr = players.LocalPlayer
 
@@ -343,7 +354,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                 v.Parent = getChar()
             end
         end
-    elseif spaceSplit[1] == "fling"  or spaceSplit[1] == "smite"  then
+    elseif spaceSplit[1] == "fling"  or spaceSplit[1] == "smite"   or spaceSplit[1] == "superfling"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
@@ -410,7 +421,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Tool%20Loop%20Fling%20All"))()
     elseif spaceSplit[1] == "loopflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/loop%20fling%20all"))()
-    elseif spaceSplit[1] == "netlag" or spaceSplit[1] == "netsleep" then
+    elseif spaceSplit[1] == "netlag" or spaceSplit[1] == "netsleep" or spaceSplit[1] == "glitch" then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             for i,v in pairs(players:Getplayers()) do
                 if v ~= plr then
@@ -422,7 +433,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         table.insert(netsleepTargets,target)
-    elseif spaceSplit[1] == "unnetlag" or spaceSplit[1] == "unnetsleep"  then
+    elseif spaceSplit[1] == "unnetlag" or spaceSplit[1] == "unnetsleep" or spaceSplit[1] == "unglitch"  then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             netsleepTargets = {}
             return
@@ -436,7 +447,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         print([[
         
         -------------------------------------------
-        |  Commands (Prefix = No Prefix):
+        |  55 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -454,12 +465,14 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         =============================================
         |
         |    kill [target]
+        |    ?kill2 [target]
         |    void [target]
         |    hold [target]
         |    +hostage [target]
         |    grabknife [target]
-        |    grab [target] -- click to kill
+        |    grab [target] -- click to kill need hat 7170689370
         |    bring [target]
+        |    ?bring2 [target]
         |    ?punish [target]
         |    ?kick [target]
         |    bang [target]
@@ -475,23 +488,33 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |
         |    loopflingall
         |    fling [target]
+        |    +superfling [target]
         |    +smite [target]
         |    ?ban [target]
         |    .netlag [target]
         |    .netsleep [target]
+        |    .glitch [target]
+        |    unglitch [target]
         |    unnetlag [target]
         |    unnetsleep [target]
         |    goto [target]
         |    to [target]
         |    noclip
+        |    ?sit [target]
+        |    ?god [target]
+        |    ?r6 -- allows you to use this script in r15 games
         |    nc
         |    clip
+        |    ?fly [speed]
+        |    ?noclipfly [speed]
+        |    ?nfly [speed]
         |    c
         |    rejoin
         |    rj
         |    respawn
         |    re
         |    equiptools
+        |    ?blocktool
         |    hipheight [number]
         |    hh [number]
         |    walkspeed [number] 
@@ -520,6 +543,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         print([[
         
      --------------------------------------------------
+     
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        
                        ooo OOO OOO ooo                 
                    oOO                 OOo             
                oOO                         OOo         
@@ -540,14 +568,26 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             oO                                OOo      
                oOO                         OOo         
                    oOO                 OOo             
-                       ooo OOO OOO ooo                 
+                       ooo OOO OOO ooo  
+    
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+    
                         New SX Fe Admin                 
                      Made by tubers93#4764
                      Credits To Some People
-             To Many People To Give Credits So Yeah
+             quirkly anime boy [onwer of Neutron Admin]
+                     infinite yield admin
+                         proton admin
+                   and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.2.0 Fe Script Admin Script
-            "Inspired" by Digitality's Proton Admin    
+               Version 2.2.6 Fe Script Admin Script
+            "Inspired" by Digitality's Proton Admin  
+            
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================                  
      --------------------------------------------------
         ]])
     elseif spaceSplit[1] == "stopadmin" then
@@ -559,6 +599,11 @@ end)
 print([[
        
      --------------------------------------------------
+     
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        
                        ooo OOO OOO ooo                 
                    oOO                 OOo             
                oOO                         OOo         
@@ -579,11 +624,21 @@ print([[
             oO                                OOo      
                oOO                         OOo         
                    oOO                 OOo             
-                       ooo OOO OOO ooo                 
+                       ooo OOO OOO ooo   
+                       
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================                  
+                       
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.2.0 Fe Script Admin Script
+              Version 2.2.6 Fe Script Admin Script
                        Say cmds to begin    
+                       
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================                  
      --------------------------------------------------
 ]])
+-- Synapse X Fan
