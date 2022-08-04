@@ -215,7 +215,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             getChar().Animate.Disabled = false
             getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,-90,0)
         end
-    elseif spaceSplit[1] == "hold" then
+    elseif spaceSplit[1] == "hold"  or spaceSplit[1] == "hostage"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -293,7 +293,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             plr.CharacterAdded:Wait()
             getChar():WaitForChild("HumanoidRootPart").CFrame = old
         end)
-    elseif spaceSplit[1] == "bang" then
+    elseif spaceSplit[1] == "bang"  or spaceSplit[1] == "benx"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -346,7 +346,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                 v.Parent = getChar()
             end
         end
-    elseif spaceSplit[1] == "fling" then
+    elseif spaceSplit[1] == "fling"  or spaceSplit[1] == "smite"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
@@ -442,42 +442,45 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |  Commands (Prefix = No Prefix):
         |
         =============================================
-        |||||||||||||||||||||||||||||||||||||||||||||
+        |||||||||||||Warnings And Lables|||||||||||||
         =============================================
         |
         |    [!] R6 Only May Work On R15
         |    [!] Must Have Tools
         |    [!] There May Be Some Bugs
         |    [.] = client commands
+        |    [+] = new commands
         |    [?] = in development
         |    [*] = requires tool
         |    
         =============================================
-        |||||||||||||||||||||||||||||||||||||||||||||
+        ||||||||||||||||Tool Commands||||||||||||||||
         =============================================
         |
-        |    *kill [target]
-        |    *void [target]
-        |    *hold [target]
-        |    *grabknife [target]
-        |    *grab [target] -- click to kill
-        |    *bring [target]
-        |    *,?punish [target]
-        |    *,?kick [target]
-        |    *bang [target]
-        |    *,?benx [target]
-        |    *carry [target]
-        |    *control [target]
+        |    kill [target]
+        |    void [target]
+        |    hold [target]
+        |    +hostage [target]
+        |    grabknife [target]
+        |    grab [target] -- click to kill
+        |    bring [target]
+        |    ?punish [target]
+        |    ?kick [target]
+        |    bang [target]
+        |    benx [target]
+        |    carry [target]
+        |    control [target]
         |    uncontrol
-        |    *toolflingall
+        |    toolflingall
         |    
         =============================================
-        |||||||||||||||||||||||||||||||||||||||||||||
+        ||||||||||||||||||Commands|||||||||||||||||||
         =============================================
         |
         |    loopflingall
         |    fling [target]
-        |    .,?ban [target]
+        |    +smite [target]
+        |    ?ban [target]
         |    .netlag [target]
         |    .netsleep [target]
         |    unnetlag [target]
@@ -538,7 +541,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                      Credits To Some People
              To Many People To Give Credits So Yeah
                 Made With Synapse X Ace Editor
-               Version 2.1.2 Fe Script Admin Script
+               Version 2.1.9 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin    
      --------------------------------------------------
         ]])
@@ -575,7 +578,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.1.2 Fe Script Admin Script
+              Version 2.1.9 Fe Script Admin Script
                        Say cmds to begin    
      --------------------------------------------------
 ]])
