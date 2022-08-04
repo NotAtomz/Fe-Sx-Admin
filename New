@@ -21,11 +21,8 @@
                oOO                         OOo         
                    oOO                 OOo             
                        ooo OOO OOO ooo                 
-                        New SX Fe Admin                 
-                     Made by tubers93#4764
-                     Credits To Some People
-             To Many People To Give Credits So Yeah
-            "Inspired" by Digitality's Proton Admin
+if you deobfuscate you cant change the owner name to get the owner commands
+and im adding a if de obfucated you will be blacklisted
 
 ]]--
 
@@ -451,7 +448,6 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    [.] = client commands
         |    [+] = new commands
         |    [?] = in development
-        |    [*] = requires tool
         |    
         =============================================
         ||||||||||||||||Tool Commands||||||||||||||||
@@ -467,7 +463,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?punish [target]
         |    ?kick [target]
         |    bang [target]
-        |    benx [target]
+        |    +benx [target]
         |    carry [target]
         |    control [target]
         |    uncontrol
@@ -507,6 +503,15 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    stopadmin
         |    
         =============================================
+        |||||||||||||Owner Only Commands|||||||||||||
+        =============================================
+        |    
+        |    ?sskick [target] [reason]
+        |    ?ssban [target] [reason] [time]
+        |    ?co-owner [target]
+        |    ?sspunish [target]
+        |
+        =============================================
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         -------------------------------------------
@@ -541,7 +546,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                      Credits To Some People
              To Many People To Give Credits So Yeah
                 Made With Synapse X Ace Editor
-               Version 2.1.9 Fe Script Admin Script
+               Version 2.2.0 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin    
      --------------------------------------------------
         ]])
@@ -578,7 +583,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.1.9 Fe Script Admin Script
+              Version 2.2.0 Fe Script Admin Script
                        Say cmds to begin    
      --------------------------------------------------
 ]])
