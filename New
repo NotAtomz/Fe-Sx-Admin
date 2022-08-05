@@ -23,6 +23,8 @@
                        ooo OOO OOO ooo                 
     if you deobfuscate you cant change the owner name to get the owner commannds
 and im adding a if de obfucated you will be blacklisted and banned form my discord skidsss
+adding the black lister so dont share the script or it will delete your acc by making your
+say bad stuff in roblox until you get banned or deleted :happyface:
 
 ]]--
 
@@ -384,7 +386,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 3.5
+        local flingTime = 4.5
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -473,7 +475,38 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         print([[
         
         -------------------------------------------
-        |  57 Commands (Prefix = No Prefix):
+        
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        
+                       ooo OOO OOO ooo                 
+                   oOO                 OOo             
+               oOO                         OOo         
+            oOO                               OOo      
+          oOO            ___________            OOo    
+        oOO             |\                       OOo   
+       oOO              | \                       OOo  
+      oOO               |  \                       OOo 
+     oOO                |   \                       OOo
+     oOO                |____\______                OOo
+     oOO                      \     |               OOo
+     oOO                       \    |               OOo
+     oOO                        \   |               OOo
+      oOO                        \  |              OOo 
+       oOO                        \ |             OOo  
+        oOO              __________\|            OOo   
+          oOO                                   OOo    
+            oO                                OOo      
+               oOO                         OOo         
+                   oOO                 OOo             
+                       ooo OOO OOO ooo  
+    
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        |
+        |  54 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -518,19 +551,19 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    +smite [target]
         |    ?ban [target]
         |    .netlag [target]
-        |    .netsleep [target]
+        |    SCRIPT DELETED
         |    .glitch [target]
         |    unglitch [target]
+        |    SCRIPT DELETED
         |    unnetlag [target]
-        |    unnetsleep [target]
         |    goto [target]
         |    to [target]
         |    noclip
         |    ?sit [target]
         |    ?god [target]
-        |    ?r6 -- allows you to use this script in r15 games
         |    ?chaterror
         |    ?breakchat
+        |    SCRIPT DELETED
         |    nc
         |    clip
         |    ?fly [speed]
@@ -607,10 +640,10 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                      Credits To Some People
              quirkly anime boy [onwer of Neutron Admin]
                      infinite yield admin
-                         proton admin
+[um so the owner of proton admin did not let me use there code so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.4.5 Fe Script Admin Script
+               Version 2.4.9 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -661,7 +694,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.4.5 Fe Script Admin Script
+              Version 2.4.9 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
