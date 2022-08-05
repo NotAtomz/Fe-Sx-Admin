@@ -513,11 +513,74 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
-        elseif spaceSplit[1] == "nfling"  or spaceSplit[1] == "noclipfling"  then
+        elseif spaceSplit[1] == "ultrafling"  or spaceSplit[1] == "ufling"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 3.5
+        local flingTime = 10
+        local fTime = os.clock()
+        local rot = 0
+        local tools = {}
+        local originalGrips = {}
+        local hum = getChar():FindFirstChildOfClass("Humanoid")
+        local root = hum.RootPart
+        local tChr = target.Character
+        local tHum = tChr:FindFirstChildOfClass("Humanoid")
+        local tRoot = tChr:FindFirstChild("Torso") or tChr:FindFirstChild("UpperTorso")
+        local origCF = root.CFrame
+        local origState = hum:GetState()
+        local origFpdh = workspace.FallenPartsDestroyHeight
+        workspace.FallenPartsDestroyHeight = 0 / 0
+        hum:ChangeState(Enum.HumanoidStateType.Physics)
+        hum:UnequipTools()
+        for _, v in ipairs(plr.Backpack:GetChildren()) do
+            if v:IsA("Tool") and v:FindFirstChild("Handle") then
+                table.insert(tools, v)
+                table.insert(originalGrips, v.Grip)
+                v.Handle.Massless = true
+                v.Grip = CFrame.new(5773, 5774, 5773)
+                v.Parent = getChar()
+            end
+        end
+        local bv = Instance.new("BodyVelocity")
+        bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+        bv.Velocity = Vector3.new(9e30, 9e30, 9e30)
+        bv.Parent = root
+        local bav = Instance.new("BodyAngularVelocity")
+        bav.AngularVelocity = Vector3.new(9e30, 9e30, 9e30)
+        bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+        bav.Parent = root
+        while true do
+            if os.clock() - fTime >= flingTime then
+                break
+            else
+                if rot == 90 then
+                    rot = 0
+                else
+                    rot = 90
+                end
+                root.CFrame = tRoot.CFrame * CFrame.Angles(math.rad(rot), 0, 0) + tHum.MoveDirection * tHum.WalkSpeed * .4
+            end
+            task.wait()
+        end
+        hum:ChangeState(origState)
+        bav:Destroy()
+        bv:Destroy()
+        root.Velocity = Vector3.new()
+        root.RotVelocity = Vector3.new()
+        root.CFrame = origCF
+        workspace.FallenPartsDestroyHeight = origFpdh
+        for i, v in ipairs(tools) do
+            if originalGrips[i] then
+                v.Grip = originalGrips[i]
+            end
+        end
+        hum:UnequipTools()
+        elseif spaceSplit[1] == "smite"   or spaceSplit[1] == "superfling"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        if target == nil then return end
+        
+        local flingTime = 5.5
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -637,7 +700,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  56 Commands (Prefix = No Prefix):
+        |  58 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -681,6 +744,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    superfling [target]
         |    +noclipfling [target]
         |    +nfling [target]
+        |    +ultrafling [target]
+        |    +ufling [target]
         |    smite [target]
         |    ?ban [target]
         |    .netlag [target]
@@ -694,9 +759,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    noclip
         |    ?sit [target]
         |    ?god [target]
+        |
         =============================================
         ||||||||||||||||||Commands|||||||||||||||||||
         =============================================
+        |
         |    ?chaterror
         |    ?breakchat
         |    SCRIPT DELETED
