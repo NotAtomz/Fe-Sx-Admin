@@ -5,7 +5,7 @@
                oOO                         OOo         
             oOO                               OOo      
           oOO                                   OOo    
-        oOO             |\          |            OOo   
+        oOO             |           |            OOo   
        oOO              | \         |             OOo  
       oOO               |  \        |              OOo 
      oOO                |   \       |               OOo
@@ -37,7 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 2.4.5";
+	Text = "Loading Script Version 2.5.1";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -57,12 +57,17 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Done!";
-	Text = "";
+	Text = "Loading Script Version 2.5.1";
 })
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "To See Commands Type cmds Then Prss F9 Or Type /console";
+	Text = "SX FE Script Version 2.5.1 Has Loaded";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Stuff";
+	Text = "Made By tubers93#4764, Type cmds In Chat Then Click F9 Or Console To See Commands";
 })
 
 local players = game:GetService("Players")
@@ -236,9 +241,9 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             v:Stop()
         end
         getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
-        getChar().Humanoid.HipHeight = 100
+        getChar().Humanoid.HipHeight = 200
         tool.Handle.CanCollide = false
-        local attWeld = attachTool(tool,CFrame.new(-1.5, -(100 - (tool.Handle.Size.Y/2)), 0))
+        local attWeld = attachTool(tool,CFrame.new(-1.5, -(200 - (tool.Handle.Size.Y/2)), 0))
         workspace.CurrentCamera.CameraSubject = target.Character.Humanoid
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -640,10 +645,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                      Credits To Some People
              quirkly anime boy [onwer of Neutron Admin]
                      infinite yield admin
-[um so the owner of proton admin did not let me use there code so ima delete some of there commands]
+[um so the owner of proton admin did not let me use there code
+          so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.4.9 Fe Script Admin Script
+               Version 2.5.1 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -694,7 +700,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.4.9 Fe Script Admin Script
+              Version 2.5.1 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
@@ -702,4 +708,4 @@ print([[
         =============================================                  
      --------------------------------------------------
 ]])
--- Synapse X Fan
+
