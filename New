@@ -673,7 +673,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    toolflingall
         |    
         =============================================
-        ||||||||||||||||||Commands|||||||||||||||||||
+        ||||||||||||||Target Commands||||||||||||||||
         =============================================
         |
         |    loopflingall
@@ -694,6 +694,9 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    noclip
         |    ?sit [target]
         |    ?god [target]
+        =============================================
+        ||||||||||||||||||Commands|||||||||||||||||||
+        =============================================
         |    ?chaterror
         |    ?breakchat
         |    SCRIPT DELETED
