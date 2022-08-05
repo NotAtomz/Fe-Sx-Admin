@@ -37,7 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 2.5.1";
+	Text = "Loading Script Version 2.5.5";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -391,7 +391,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 0.2
+        local flingTime = 0.5
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -847,7 +847,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.5.1 Fe Script Admin Script
+               Version 2.5.5 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -898,7 +898,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.5.1 Fe Script Admin Script
+              Version 2.5.5 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
