@@ -517,7 +517,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 10
+        local flingTime = 9.9
         local fTime = os.clock()
         local rot = 0
         local tools = {}
