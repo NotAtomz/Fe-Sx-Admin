@@ -739,7 +739,6 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         ||||||||||||||Target Commands||||||||||||||||
         =============================================
         |
-        |    loopflingall
         |    fling [target]
         |    superfling [target]
         |    +noclipfling [target]
@@ -764,6 +763,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         ||||||||||||||||||Commands|||||||||||||||||||
         =============================================
         |
+        |    loopflingall
         |    ?chaterror
         |    ?breakchat
         |    SCRIPT DELETED
@@ -841,7 +841,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                         New SX Fe Admin                 
                      Made by tubers93#4764
                      Credits To Some People
-             quirkly anime boy [onwer of Neutron Admin]
+             quirkly anime boy [owner of Neutron Admin]
                      infinite yield admin
 [um so the owner of proton admin did not let me use there code
           so ima delete some of there commands]
