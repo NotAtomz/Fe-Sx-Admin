@@ -21,20 +21,46 @@
                oOO                         OOo         
                    oOO                 OOo             
                        ooo OOO OOO ooo                 
-if you deobfuscate you cant change the owner name to get the owner commands
-and im adding a if de obfucated you will be blacklisted
+    if you deobfuscate you cant change the owner name to get the owner commannds
+and im adding a if de obfucated you will be blacklisted and banned form my discord skidsss
 
 ]]--
 
+
+
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Script Has Loaded";
-	Text = "To See Commands Prss F9 Or Type /console";
+	Title = "Checking Game For Fe";
+	Text = "";
 })
 
-game.StarterGui:SetCore("ChatMakeSystemMessage", {
-    Text = "Thank you for using SX Admin FE, Made By tubers93#4764, Type Cmds To View Commands In Console";
-    Font = Enum.Font.SourceSansBold;
-    Color = Color3.fromRGB(255, 0, 255);
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Fe Found";
+	Text = "Loading Script Version 2.4.5";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Loading.";
+	Text = "";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Loading..";
+	Text = "";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Loading..";
+	Text = "";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Done!";
+	Text = "";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Script Has Loaded";
+	Text = "To See Commands Type cmds Then Prss F9 Or Type /console";
 })
 
 local players = game:GetService("Players")
@@ -358,7 +384,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 2.5
+        local flingTime = 3.5
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -441,13 +467,13 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil or table.find(netsleepTargets,target) == nil then return end
         table.remove(netsleepTargets,table.find(netsleepTargets,target))
-    elseif spaceSplit[1] == "rejoin" or spaceSplit[1] == "/rj" then
+    elseif spaceSplit[1] == "rejoin" or spaceSplit[1] == "rj" then
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
     elseif spaceSplit[1] == "cmds" then
         print([[
         
         -------------------------------------------
-        |  55 Commands (Prefix = No Prefix):
+        |  57 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -503,6 +529,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?sit [target]
         |    ?god [target]
         |    ?r6 -- allows you to use this script in r15 games
+        |    ?chaterror
+        |    ?breakchat
         |    nc
         |    clip
         |    ?fly [speed]
@@ -582,7 +610,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                          proton admin
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.2.6 Fe Script Admin Script
+               Version 2.4.5 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -633,7 +661,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.2.6 Fe Script Admin Script
+              Version 2.4.5 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
