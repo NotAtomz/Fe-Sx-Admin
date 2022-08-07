@@ -37,7 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 2.5.5";
+	Text = "Loading Script Version 2.5.9";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -69,6 +69,11 @@ game.StarterGui:SetCore("SendNotification", {
 	Title = "Stuff";
 	Text = "Made By tubers93#4764, Type cmds In Chat Then Click F9 Or Console To See Commands";
 })
+
+function Chat(Message)
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
+end
+
 
 local players = game:GetService("Players")
 local plr = players.LocalPlayer
@@ -256,6 +261,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             getChar().Animate.Disabled = false
             getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,-90,0)
         end
+    elseif spaceSplit[1] == "chatscript" then
+       Chat("This Player Is Using A FE Admin Script Which You Can Buy At tubers93#4764 pt")
     elseif spaceSplit[1] == "hold"  or spaceSplit[1] == "hostage"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -273,6 +280,40 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+    elseif spaceSplit[1] == "cuff"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(1,-3,0) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+    elseif spaceSplit[1] == "backpack"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(0,0,-1) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
     elseif spaceSplit[1] == "carry" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -282,7 +323,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "void" or spaceSplit[1] == "kill" then
+    elseif spaceSplit[1] == "kill" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -291,6 +332,24 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         workspace.FallenPartsDestroyHeight = 0/0
         tool.Handle.CanCollide = false
         local attWeld = attachTool(tool,CFrame.new(-1,-2,0) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        tool.AncestryChanged:Wait()
+        getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,math.huge,0)
+        wait(.5)
+        attWeld:Destroy()
+        wait(.5)
+        getChar().HumanoidRootPart.CFrame = old
+        elseif spaceSplit[1] == "void" then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        local old = getChar().HumanoidRootPart.CFrame
+        local olddh = workspace.FallenPartsDestroyHeight
+        workspace.FallenPartsDestroyHeight = 0/0
+        tool.Handle.CanCollide = false
+        local attWeld = attachTool(tool,CFrame.new(-1,-2,0) * CFrame.Angles(math.rad(11),1111,11))
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -576,69 +635,6 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
-        elseif spaceSplit[1] == "smite"   or spaceSplit[1] == "superfling"  then
-        local target = getPlr(tostring(spaceSplit[2]):lower())
-        if target == nil then return end
-        
-        local flingTime = 5.5
-        local fTime = os.clock()
-        local rot = 0
-        local tools = {}
-        local originalGrips = {}
-        local hum = getChar():FindFirstChildOfClass("Humanoid")
-        local root = hum.RootPart
-        local tChr = target.Character
-        local tHum = tChr:FindFirstChildOfClass("Humanoid")
-        local tRoot = tChr:FindFirstChild("Torso") or tChr:FindFirstChild("UpperTorso")
-        local origCF = root.CFrame
-        local origState = hum:GetState()
-        local origFpdh = workspace.FallenPartsDestroyHeight
-        workspace.FallenPartsDestroyHeight = 0 / 0
-        hum:ChangeState(Enum.HumanoidStateType.Physics)
-        hum:UnequipTools()
-        for _, v in ipairs(plr.Backpack:GetChildren()) do
-            if v:IsA("Tool") and v:FindFirstChild("Handle") then
-                table.insert(tools, v)
-                table.insert(originalGrips, v.Grip)
-                v.Handle.Massless = true
-                v.Grip = CFrame.new(5773, 5774, 5773)
-                v.Parent = getChar()
-            end
-        end
-        local bv = Instance.new("BodyVelocity")
-        bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-        bv.Velocity = Vector3.new(9e30, 9e30, 9e30)
-        bv.Parent = root
-        local bav = Instance.new("BodyAngularVelocity")
-        bav.AngularVelocity = Vector3.new(9e30, 9e30, 9e30)
-        bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-        bav.Parent = root
-        while true do
-            if os.clock() - fTime >= flingTime then
-                break
-            else
-                if rot == 90 then
-                    rot = 0
-                else
-                    rot = 90
-                end
-                root.CFrame = tRoot.CFrame * CFrame.Angles(math.rad(rot), 0, 0) + tHum.MoveDirection * tHum.WalkSpeed * .4
-            end
-            task.wait()
-        end
-        hum:ChangeState(origState)
-        bav:Destroy()
-        bv:Destroy()
-        root.Velocity = Vector3.new()
-        root.RotVelocity = Vector3.new()
-        root.CFrame = origCF
-        workspace.FallenPartsDestroyHeight = origFpdh
-        for i, v in ipairs(tools) do
-            if originalGrips[i] then
-                v.Grip = originalGrips[i]
-            end
-        end
-        hum:UnequipTools()
     elseif spaceSplit[1] == "toolflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Tool%20Loop%20Fling%20All"))()
     elseif spaceSplit[1] == "loopflingall" then
@@ -700,7 +696,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  58 Commands (Prefix = No Prefix):
+        |  65 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -721,6 +717,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?kill2 [target]
         |    void [target]
         |    hold [target]
+        |    +backpack [target]
+        |    +cuff [target]
         |    hostage [target]
         |    grabknife [target]
         |    grab [target] -- click to kill need hat 7170689370
@@ -767,11 +765,16 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?chaterror
         |    ?breakchat
         |    SCRIPT DELETED
+        |    ?silentcommands
+        |    ?unsilentcommands
+        |    ?sc
+        |    ?unsc
         |    nc
         |    clip
         |    ?fly [speed]
         |    ?noclipfly [speed]
         |    ?nfly [speed]
+        |    chatscript
         |    c
         |    rejoin
         |    rj
@@ -847,7 +850,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.5.5 Fe Script Admin Script
+               Version 2.5.9 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -859,6 +862,54 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         cc:Disconnect()
         nsLoop:Disconnect()
         ncLoop:Disconnect()
+        game.StarterGui:SetCore("SendNotification", {
+	    Title = "Stopped Admin";
+     	Text = "The Has Been Stopped";
+         })
+        print([[
+        
+     --------------------------------------------------
+     
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+        
+                       ooo OOO OOO ooo                 
+                   oOO                 OOo             
+               oOO                         OOo         
+            oOO                               OOo      
+          oOO            ___________            OOo    
+        oOO             |\                       OOo   
+       oOO              | \                       OOo  
+      oOO               |  \                       OOo 
+     oOO                |   \                       OOo
+     oOO                |____\______                OOo
+     oOO                      \     |               OOo
+     oOO                       \    |               OOo
+     oOO                        \   |               OOo
+      oOO                        \  |              OOo 
+       oOO                        \ |             OOo  
+        oOO              __________\|            OOo   
+          oOO                                   OOo    
+            oO                                OOo      
+               oOO                         OOo         
+                   oOO                 OOo             
+                       ooo OOO OOO ooo  
+    
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================
+    
+             Thanks For Using SX Fe Admin Made By
+                  tubers93#4764 On Discord
+      My Script Was "Inspired" by Digitality's Proton Admin
+   And Thanks For SX Team For Helping Me Make This Script Idea
+            
+        =============================================
+        |||||||||||||||||||||||||||||||||||||||||||||
+        =============================================                  
+     --------------------------------------------------
+        ]])
     end
 end)
 print([[
@@ -898,7 +949,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.5.5 Fe Script Admin Script
+              Version 2.5.9 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
