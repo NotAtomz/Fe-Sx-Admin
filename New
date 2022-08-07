@@ -62,7 +62,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "SX FE Script Version 2.5.9Has Loaded";
+	Text = "SX FE Script Version 2.5.9 Has Loaded";
 })
 
 game.StarterGui:SetCore("SendNotification", {
