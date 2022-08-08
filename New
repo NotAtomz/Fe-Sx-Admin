@@ -37,7 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 2.9.1";
+	Text = "Loading Script Version 3.0.0";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -57,12 +57,12 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Done!";
-	Text = "Loading Script Version 2.9.1";
+	Text = "Loading Script Version 3.0.0";
 })
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "SX FE Script Version 2.9.1 Has Loaded";
+	Text = "SX FE Script Version 3.0.0 Has Loaded";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -237,6 +237,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         tool.AncestryChanged:Wait()
         wait(.25)
         attWeld:Destroy()
+    elseif spaceSplit[1] == "btools" or spaceSplit[1] == "f3x"  then
+        loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
     elseif spaceSplit[1] == "control" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -764,7 +766,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  76 Commands (Prefix = No Prefix):
+        |  78 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -786,12 +788,12 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    void [target]
         |    hold [target]
         |    unhold
-        |    +force [target]
-        |    +useforce [target]
-        |    +longhold [target]
-        |    +backpack [target]
+        |    force [target]
+        |    useforce [target]
+        |    longhold [target]
+        |    backpack [target]
         |    unbackpack
-        |    +cuff [target]
+        |    cuff [target]
         |    uncuff
         |    hostage [target]
         |    unhostage
@@ -818,10 +820,10 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |
         |    fling [target]
         |    superfling [target]
-        |    +noclipfling [target]
-        |    +nfling [target]
-        |    +ultrafling [target]
-        |    +ufling [target]
+        |    noclipfling [target]
+        |    nfling [target]
+        |    ultrafling [target]
+        |    ufling [target]
         |    smite [target]
         |    ?ban [target]
         |    .netlag [target]
@@ -848,6 +850,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?unsilentcommands
         |    ?sc
         |    ?unsc
+        |    +btools
+        |    +f3x
         |    nc
         |    clip
         |    ?fly [speed]
@@ -929,7 +933,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.9.1 Fe Script Admin Script
+               Version 3.0.0 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -1028,7 +1032,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.9.1 Fe Script Admin Script
+              Version 3.0.0 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
