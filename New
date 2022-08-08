@@ -314,12 +314,28 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        elseif spaceSplit[1] == "uncarry"  or spaceSplit[1] == "unhold"   or spaceSplit[1] == "uncuff"  or spaceSplit[1] == "unhostage"   or spaceSplit[1] == "unbang"  or spaceSplit[1] == "unbenx"   or spaceSplit[1] == "unbackpack"  or spaceSplit[1] == "untoolflingall"  then
+        local c = getChar()
+        plr.Character = nil
+        plr.Character = c
+        wait(players.RespawnTime - .1)
+        local old = c.HumanoidRootPart.CFrame
+        c.Humanoid.Health = 0
+        plr.CharacterAdded:Wait()
+        getChar():WaitForChild("HumanoidRootPart").CFrame = old
+    elseif spaceSplit[1] == "equiptools" then
+        for i,v in pairs(getBp():GetChildren()) do
+            if v:IsA("Tool") then
+                v.Parent = getChar()
+            end
+        end
+        
     elseif spaceSplit[1] == "carry" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
         tool.Handle.CanCollide = false
-        attachTool(tool,CFrame.new(1.5,-3,1) * CFrame.Angles(math.rad(-90),0,0))
+        attachTool(tool,CFrame.new(1.5,-3,1) * CFrame.Angles(math.rad(-90),0,0)) 
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -450,7 +466,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 0.5
+        local flingTime = 0.4
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -696,7 +712,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  65 Commands (Prefix = No Prefix):
+        |  73 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -717,9 +733,13 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?kill2 [target]
         |    void [target]
         |    hold [target]
+        |    unhold
         |    +backpack [target]
+        |    unbackpack
         |    +cuff [target]
+        |    uncuff
         |    hostage [target]
+        |    unhostage
         |    grabknife [target]
         |    grab [target] -- click to kill need hat 7170689370
         |    bring [target]
@@ -727,11 +747,15 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    ?punish [target]
         |    ?kick [target]
         |    bang [target]
+        |    unbang
         |    benx [target]
+        |    unbenx
         |    carry [target]
+        |    uncarry
         |    control [target]
         |    uncontrol
         |    toolflingall
+        |    untoolflingall
         |    
         =============================================
         ||||||||||||||Target Commands||||||||||||||||
@@ -850,7 +874,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.5.9 Fe Script Admin Script
+               Version 2.5.5 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -949,7 +973,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.5.9 Fe Script Admin Script
+              Version 2.5.5 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
