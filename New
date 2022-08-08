@@ -37,7 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 2.5.9";
+	Text = "Loading Script Version 2.9.1";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -57,12 +57,12 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Done!";
-	Text = "Loading Script Version 2.5.9";
+	Text = "Loading Script Version 2.9.1";
 })
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "SX FE Script Version 2.5.9 Has Loaded";
+	Text = "SX FE Script Version 2.9.1 Has Loaded";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -280,6 +280,40 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        elseif spaceSplit[1] == "longhold"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(-1,-10,0) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        elseif spaceSplit[1] == "force"  or spaceSplit[1] == "useforce"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(0,-4,-2) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
     elseif spaceSplit[1] == "cuff"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -409,7 +443,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             plr.CharacterAdded:Wait()
             getChar():WaitForChild("HumanoidRootPart").CFrame = old
         end)
-    elseif spaceSplit[1] == "bang"  or spaceSplit[1] == "benx"  then
+    elseif spaceSplit[1] == "bang"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -422,6 +456,24 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k.Looped = true
         k:Play(0)
         k:AdjustSpeed(10)
+        tool.Handle.CanCollide = false
+        local attWeld= attachTool(tool,CFrame.new(0.2,4,2) * CFrame.Angles(math.rad(90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        elseif spaceSplit[1] == "benx"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://148840371"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k.Looped = true
+        k:Play(0)
+        k:AdjustSpeed(100)
         tool.Handle.CanCollide = false
         local attWeld= attachTool(tool,CFrame.new(0.2,4,2) * CFrame.Angles(math.rad(90),0,0))
         target.Character.Humanoid.PlatformStand = true
@@ -466,7 +518,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 0.4
+        local flingTime = 0.3
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -712,7 +764,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  73 Commands (Prefix = No Prefix):
+        |  76 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -734,6 +786,9 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    void [target]
         |    hold [target]
         |    unhold
+        |    +force [target]
+        |    +useforce [target]
+        |    +longhold [target]
         |    +backpack [target]
         |    unbackpack
         |    +cuff [target]
@@ -874,7 +929,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 2.5.5 Fe Script Admin Script
+               Version 2.9.1 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -973,7 +1028,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 2.5.5 Fe Script Admin Script
+              Version 2.9.1 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
