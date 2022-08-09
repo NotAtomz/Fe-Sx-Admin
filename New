@@ -265,6 +265,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         end
     elseif spaceSplit[1] == "chatscript" then
        Chat("This Player Is Using A FE Admin Script Which You Can Buy At tubers93#4764 pt")
+       Chat("Also This Script Has 80 Commands! Script Version Is 3.0.0")
     elseif spaceSplit[1] == "hold"  or spaceSplit[1] == "hostage"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -295,7 +296,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k:Play(0)
         k:AdjustSpeed(0)
         tool.Handle.CanCollide = false
-        attachTool(tool,CFrame.new(-1,-10,0) * CFrame.Angles(math.rad(-90),0,0))
+        attachTool(tool,CFrame.new(-1,-15,0) * CFrame.Angles(math.rad(-90),0,0))
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -312,7 +313,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k:Play(0)
         k:AdjustSpeed(0)
         tool.Handle.CanCollide = false
-        attachTool(tool,CFrame.new(0,-4,-2) * CFrame.Angles(math.rad(-90),0,0))
+        attachTool(tool,CFrame.new(0,-7,-2) * CFrame.Angles(math.rad(-90),0,0))
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -346,7 +347,24 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k:Play(0)
         k:AdjustSpeed(0)
         tool.Handle.CanCollide = false
-        attachTool(tool,CFrame.new(0,0,-1) * CFrame.Angles(math.rad(-90),0,0))
+        attachTool(tool,CFrame.new(0,0.5,-1) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+    elseif spaceSplit[1] == "inbody"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(0,-1,0) * CFrame.Angles(math.rad(-90),0,0))
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -372,6 +390,15 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         if target == nil or tool == nil then return end
         tool.Handle.CanCollide = false
         attachTool(tool,CFrame.new(1.5,-3,1) * CFrame.Angles(math.rad(-90),0,0)) 
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        elseif spaceSplit[1] == "claim" then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(0,0,0.2) * CFrame.Angles(math.rad(-90),0,0)) 
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -520,7 +547,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 0.3
+        local flingTime = 0.7
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -766,7 +793,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  78 Commands (Prefix = No Prefix):
+        |  80 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -786,6 +813,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    kill [target]
         |    ?kill2 [target]
         |    void [target]
+        |    +inbody [target]
+        |    +cliam [target]
         |    hold [target]
         |    unhold
         |    force [target]
