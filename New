@@ -37,17 +37,7 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Fe Found";
-	Text = "Loading Script Version 3.0.0";
-})
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Loading..";
-	Text = "";
-})
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Loading..";
-	Text = "";
+	Text = "Loading Script Version 3.0.9";
 })
 
 game.StarterGui:SetCore("SendNotification", {
@@ -57,18 +47,294 @@ game.StarterGui:SetCore("SendNotification", {
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Done!";
-	Text = "Loading Script Version 3.0.0";
+	Text = "Loading Script Version 3.0.9";
 })
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Script Has Loaded";
-	Text = "SX FE Script Version 3.0.0 Has Loaded";
+	Text = "SX FE Script Version 3.0.9 Has Loaded";
 })
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Stuff";
 	Text = "Made By tubers93#4764, Type cmds In Chat Then Click F9 Or Console To See Commands";
 })
+
+local HWIntro = Instance.new("ScreenGui")
+local H = Instance.new("TextLabel")
+local W = Instance.new("TextLabel")
+local HOODWINK = Instance.new("TextLabel")
+
+HWIntro.Name = "HWIntro"
+HWIntro.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HWIntro.ResetOnSpawn = false
+
+H.Parent = HWIntro
+H.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+H.BorderSizePixel = 0
+H.Position = UDim2.new(0.434221119, 0, 0.400000006, 0)
+H.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
+H.Font = Enum.Font.GothamBold
+H.Text = "S"
+H.TextColor3 = Color3.new(1, 1, 1)
+H.TextScaled = true
+H.TextSize = 14
+H.TextWrapped = true
+
+W.Archivable = false
+W.Parent = HWIntro
+W.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+W.BorderSizePixel = 0
+W.Position = UDim2.new(0.497982204, 0, 0.454700857, 0)
+W.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
+W.Font = Enum.Font.GothamBold
+W.Text = "FE"
+W.TextColor3 = Color3.new(1, 1, 1)
+W.TextScaled = true
+W.TextSize = 14
+W.TextWrapped = true
+
+HOODWINK.Parent = HWIntro
+HOODWINK.BackgroundColor3 = Color3.new(1, 1, 1)
+HOODWINK.BackgroundTransparency = 1
+HOODWINK.Position = UDim2.new(0.433414042, 0, 0.61709404, 0)
+HOODWINK.Size = UDim2.new(0.149313956, 0, 0.0854700878, 0)
+HOODWINK.Font = Enum.Font.GothamBold
+HOODWINK.Text = "SX FE ADMIN VERSION 3.0.9"
+HOODWINK.TextColor3 = Color3.new(1, 1, 1)
+HOODWINK.TextScaled = true
+HOODWINK.TextSize = 14
+HOODWINK.TextWrapped = true
+
+for i = 1,0,-0.1 do
+	HOODWINK.TextTransparency = i
+	W.BackgroundTransparency = i
+	W.TextTransparency = i
+	H.BackgroundTransparency = i
+	H.TextTransparency = i
+	wait()
+end
+
+wait(2)
+
+for i = 0,1,0.1 do
+	HOODWINK.TextTransparency = i
+	W.BackgroundTransparency = i
+	W.TextTransparency = i
+	H.BackgroundTransparency = i
+	H.TextTransparency = i
+	wait()
+end
+
+HWIntro:Destroy()
+
+SpecialPlayerCases = {
+	["all"] = function(speaker) return Players:GetPlayers() end,
+	["others"] = function(speaker)
+		local plrs = {}
+		for i,v in pairs(Players:GetPlayers()) do
+			if v ~= speaker then
+				table.insert(plrs,v)
+			end
+		end
+		return plrs
+	end,
+	["me"] = function(speaker)return {speaker} end,
+	["#(%d+)"] = function(speaker,args,currentList)
+		local returns = {}
+		local randAmount = tonumber(args[1])
+		local players = {unpack(currentList)}
+		for i = 1,randAmount do
+			if #players == 0 then break end
+			local randIndex = math.random(1,#players)
+			table.insert(returns,players[randIndex])
+			table.remove(players,randIndex)
+		end
+		return returns
+	end,
+	["random"] = function(speaker,args,currentList)
+		local players = Players:GetPlayers()
+		local localplayer = Players.LocalPlayer
+		table.remove(players, table.find(players, localplayer))
+		return {players[math.random(1,#players)]}
+	end,
+	["%%(.+)"] = function(speaker,args)
+		local returns = {}
+		local team = args[1]
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Team and string.sub(string.lower(plr.Team.Name),1,#team) == string.lower(team) then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["allies"] = function(speaker)
+		local returns = {}
+		local team = speaker.Team
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Team == team then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["enemies"] = function(speaker)
+		local returns = {}
+		local team = speaker.Team
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Team ~= team then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["team"] = function(speaker)
+		local returns = {}
+		local team = speaker.Team
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Team == team then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["nonteam"] = function(speaker)
+		local returns = {}
+		local team = speaker.Team
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Team ~= team then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["friends"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr:IsFriendsWith(speaker.UserId) and plr ~= speaker then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["nonfriends"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if not plr:IsFriendsWith(speaker.UserId) and plr ~= speaker then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["guests"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Guest then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["bacons"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Character:FindFirstChild('Pal Hair') or plr.Character:FindFirstChild('Kate Hair') then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["age(%d+)"] = function(speaker,args)
+		local returns = {}
+		local age = tonumber(args[1])
+		if not age == nil then return end
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.AccountAge <= age then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["nearest"] = function(speaker,args,currentList)
+		local speakerChar = speaker.Character
+		if not speakerChar or not getRoot(speakerChar) then return end
+		local lowest = math.huge
+		local NearestPlayer = nil
+		for _,plr in pairs(currentList) do
+			if plr ~= speaker and plr.Character then
+				local distance = plr:DistanceFromCharacter(getRoot(speakerChar).Position)
+				if distance < lowest then
+					lowest = distance
+					NearestPlayer = {plr}
+				end
+			end
+		end
+		return NearestPlayer
+	end,
+	["farthest"] = function(speaker,args,currentList)
+		local speakerChar = speaker.Character
+		if not speakerChar or not getRoot(speakerChar) then return end
+		local highest = 0
+		local Farthest = nil
+		for _,plr in pairs(currentList) do
+			if plr ~= speaker and plr.Character then
+				local distance = plr:DistanceFromCharacter(getRoot(speakerChar).Position)
+				if distance > highest then
+					highest = distance
+					Farthest = {plr}
+				end
+			end
+		end
+		return Farthest
+	end,
+	["group(%d+)"] = function(speaker,args)
+		local returns = {}
+		local groupID = tonumber(args[1])
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr:IsInGroup(groupID) then  
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["alive"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Character and plr.Character:FindFirstChildOfClass("Humanoid") and plr.Character:FindFirstChildOfClass("Humanoid").Health > 0 then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["dead"] = function(speaker,args)
+		local returns = {}
+		for _,plr in pairs(Players:GetPlayers()) do
+			if (not plr.Character or not plr.Character:FindFirstChildOfClass("Humanoid")) or plr.Character:FindFirstChildOfClass("Humanoid").Health <= 0 then
+				table.insert(returns,plr)
+			end
+		end
+		return returns
+	end,
+	["rad(%d+)"] = function(speaker,args)
+		local returns = {}
+		local radius = tonumber(args[1])
+		local speakerChar = speaker.Character
+		if not speakerChar or not getRoot(speakerChar) then return end
+		for _,plr in pairs(Players:GetPlayers()) do
+			if plr.Character and getRoot(plr.Character) then
+				local magnitude = (getRoot(plr.Character).Position-getRoot(speakerChar).Position).magnitude
+				if magnitude <= radius then table.insert(returns,plr) end
+			end
+		end
+		return returns
+	end,
+	["cursor"] = function(speaker)
+		local plrs = {}
+		local v = GetClosestPlayerFromCursor()
+		if v ~= nil then table.insert(plrs, v) end
+		return plrs
+	end,
+}
 
 function Chat(Message)
 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
@@ -239,6 +505,79 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         attWeld:Destroy()
     elseif spaceSplit[1] == "btools" or spaceSplit[1] == "f3x"  then
         loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+    
+    elseif spaceSplit[1] == "pm" or spaceSplit[1] == "privitemessage" then
+  
+    elseif spaceSplit[1] == "smite" then
+        wait(0.5)
+        Chat("Oh?")
+        wait(2.5)
+        Chat("I See That You Are Approaching Me?")
+        wait(2)
+        Chat("Now You Must Be Smited!")
+        wait(1)
+         local target = getPlr(tostring(spaceSplit[2]):lower())
+        if target == nil then return end
+        
+        local flingTime = 4.1
+        local fTime = os.clock()
+        local rot = 0
+        local tools = {}
+        local originalGrips = {}
+        local hum = getChar():FindFirstChildOfClass("Humanoid")
+        local root = hum.RootPart
+        local tChr = target.Character
+        local tHum = tChr:FindFirstChildOfClass("Humanoid")
+        local tRoot = tChr:FindFirstChild("Torso") or tChr:FindFirstChild("UpperTorso")
+        local origCF = root.CFrame
+        local origState = hum:GetState()
+        local origFpdh = workspace.FallenPartsDestroyHeight
+        workspace.FallenPartsDestroyHeight = 0 / 0
+        hum:ChangeState(Enum.HumanoidStateType.Physics)
+        hum:UnequipTools()
+        for _, v in ipairs(plr.Backpack:GetChildren()) do
+            if v:IsA("Tool") and v:FindFirstChild("Handle") then
+                table.insert(tools, v)
+                table.insert(originalGrips, v.Grip)
+                v.Handle.Massless = true
+                v.Grip = CFrame.new(5773, 5774, 5773)
+                v.Parent = getChar()
+            end
+        end
+        local bv = Instance.new("BodyVelocity")
+        bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+        bv.Velocity = Vector3.new(9e30, 9e30, 9e30)
+        bv.Parent = root
+        local bav = Instance.new("BodyAngularVelocity")
+        bav.AngularVelocity = Vector3.new(9e30, 9e30, 9e30)
+        bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+        bav.Parent = root
+        while true do
+            if os.clock() - fTime >= flingTime then
+                break
+            else
+                if rot == 90 then
+                    rot = 0
+                else
+                    rot = 90
+                end
+                root.CFrame = tRoot.CFrame * CFrame.Angles(math.rad(rot), 0, 0) + tHum.MoveDirection * tHum.WalkSpeed * .4
+            end
+            task.wait()
+        end
+        hum:ChangeState(origState)
+        bav:Destroy()
+        bv:Destroy()
+        root.Velocity = Vector3.new()
+        root.RotVelocity = Vector3.new()
+        root.CFrame = origCF
+        workspace.FallenPartsDestroyHeight = origFpdh
+        for i, v in ipairs(tools) do
+            if originalGrips[i] then
+                v.Grip = originalGrips[i]
+            end
+        end
+        hum:UnequipTools()
     elseif spaceSplit[1] == "control" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -264,8 +603,20 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,-90,0)
         end
     elseif spaceSplit[1] == "chatscript" then
+        wait(0.5)
        Chat("This Player Is Using A FE Admin Script Which You Can Buy At tubers93#4764 pt")
-       Chat("Also This Script Has 80 Commands! Script Version Is 3.0.0")
+       Chat("Also This Script Has 82 Commands! Script Version Is 3.0.9")
+      
+    elseif spaceSplit[1] == "freeze" then
+        plr.Character = nil
+        plr.Character = c
+        local old = c.HumanoidRootPart.CFrame
+        c.Humanoid.Health = 0
+        hum:ChangeState(origState)
+        bav:Destroy()
+        bv:Destroy()
+        
+       
     elseif spaceSplit[1] == "hold"  or spaceSplit[1] == "hostage"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -296,7 +647,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k:Play(0)
         k:AdjustSpeed(0)
         tool.Handle.CanCollide = false
-        attachTool(tool,CFrame.new(-1,-15,0) * CFrame.Angles(math.rad(-90),0,0))
+        attachTool(tool,CFrame.new(-1,-17,0.1) * CFrame.Angles(math.rad(-90),0,0))
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
@@ -351,7 +702,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "inbody"  then
+    elseif spaceSplit[1] == "inbody"  or spaceSplit[1] == "control2"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -368,7 +719,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-        elseif spaceSplit[1] == "uncarry"  or spaceSplit[1] == "unhold"   or spaceSplit[1] == "uncuff"  or spaceSplit[1] == "unhostage"   or spaceSplit[1] == "unbang"  or spaceSplit[1] == "unbenx"   or spaceSplit[1] == "unbackpack"  or spaceSplit[1] == "untoolflingall"  then
+        elseif spaceSplit[1] == "uncarry"  or spaceSplit[1] == "unhold"   or spaceSplit[1] == "uncuff"  or spaceSplit[1] == "unfreeze"  or spaceSplit[1] == "unhostage"   or spaceSplit[1] == "unbang"  or spaceSplit[1] == "unbenx"   or spaceSplit[1] == "unbackpack"  or spaceSplit[1] == "untoolflingall"  then
         local c = getChar()
         plr.Character = nil
         plr.Character = c
@@ -377,6 +728,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         c.Humanoid.Health = 0
         plr.CharacterAdded:Wait()
         getChar():WaitForChild("HumanoidRootPart").CFrame = old
+        
     elseif spaceSplit[1] == "equiptools" then
         for i,v in pairs(getBp():GetChildren()) do
             if v:IsA("Tool") then
@@ -393,6 +745,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
         elseif spaceSplit[1] == "claim" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -402,6 +755,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
     elseif spaceSplit[1] == "kill" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -537,6 +891,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         c.Humanoid.Health = 0
         plr.CharacterAdded:Wait()
         getChar():WaitForChild("HumanoidRootPart").CFrame = old
+        
     elseif spaceSplit[1] == "equiptools" then
         for i,v in pairs(getBp():GetChildren()) do
             if v:IsA("Tool") then
@@ -606,11 +961,22 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
-        elseif spaceSplit[1] == "smite"   or spaceSplit[1] == "superfling"  then
+        elseif spaceSplit[1] == "fti"   or spaceSplit[1] == "firetouchinterest"  then
+            while true do
+            local _, test = pcall(function()
+            wait(0.01)
+            firetouchinterest(game:GetService("Workspace").Handle, game.Players.LocalPlayer.Character.HumanoidRootPart, 0) -- 1 is untouch
+            wait()
+            firetouchinterest(game:GetService("Workspace").Handle, game.Players.LocalPlayer.Character.HumanoidRootPart, 1) -- 1 is untouch
+            end)
+
+            if test then print('error') end
+            end
+        elseif spaceSplit[1] == "superfling" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
-        local flingTime = 5.5
+        local flingTime = 3.1
         local fTime = os.clock()
         local rot = 0
         local tools = {}
@@ -793,7 +1159,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  80 Commands (Prefix = No Prefix):
+        |  82 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -872,6 +1238,10 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         =============================================
         |
         |    loopflingall
+        |    +firetouchinterest
+        |    +fti
+        |    +freeze
+        |    ?unfreeze
         |    ?chaterror
         |    ?breakchat
         |    SCRIPT DELETED
@@ -962,7 +1332,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
           so ima delete some of there commands]
                    and synapse x ace editor
                 Made With Synapse X Ace Editor
-               Version 3.0.0 Fe Script Admin Script
+               Version 3.0.9 Fe Script Admin Script
             "Inspired" by Digitality's Proton Admin  
             
         =============================================
@@ -978,6 +1348,73 @@ local cc;cc = plr.Chatted:Connect(function(msg)
 	    Title = "Stopped Admin";
      	Text = "The Has Been Stopped";
          })
+     local HWIntro = Instance.new("ScreenGui")
+local H = Instance.new("TextLabel")
+local W = Instance.new("TextLabel")
+local HOODWINK = Instance.new("TextLabel")
+
+HWIntro.Name = "HWIntro"
+HWIntro.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HWIntro.ResetOnSpawn = false
+
+H.Parent = HWIntro
+H.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+H.BorderSizePixel = 0
+H.Position = UDim2.new(0.434221119, 0, 0.400000006, 0)
+H.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
+H.Font = Enum.Font.GothamBold
+H.Text = "S"
+H.TextColor3 = Color3.new(1, 1, 1)
+H.TextScaled = true
+H.TextSize = 14
+H.TextWrapped = true
+
+W.Archivable = false
+W.Parent = HWIntro
+W.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+W.BorderSizePixel = 0
+W.Position = UDim2.new(0.497982204, 0, 0.454700857, 0)
+W.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
+W.Font = Enum.Font.GothamBold
+W.Text = "FE"
+W.TextColor3 = Color3.new(1, 1, 1)
+W.TextScaled = true
+W.TextSize = 14
+W.TextWrapped = true
+
+HOODWINK.Parent = HWIntro
+HOODWINK.BackgroundColor3 = Color3.new(1, 1, 1)
+HOODWINK.BackgroundTransparency = 1
+HOODWINK.Position = UDim2.new(0.433414042, 0, 0.61709404, 0)
+HOODWINK.Size = UDim2.new(0.149313956, 0, 0.0854700878, 0)
+HOODWINK.Font = Enum.Font.GothamBold
+HOODWINK.Text = "Good Bye"
+HOODWINK.TextColor3 = Color3.new(1, 1, 1)
+HOODWINK.TextScaled = true
+HOODWINK.TextSize = 14
+HOODWINK.TextWrapped = true
+
+for i = 1,0,-0.1 do
+	HOODWINK.TextTransparency = i
+	W.BackgroundTransparency = i
+	W.TextTransparency = i
+	H.BackgroundTransparency = i
+	H.TextTransparency = i
+	wait()
+end
+
+wait(2)
+
+for i = 0,1,0.1 do
+	HOODWINK.TextTransparency = i
+	W.BackgroundTransparency = i
+	W.TextTransparency = i
+	H.BackgroundTransparency = i
+	H.TextTransparency = i
+	wait()
+end
+
+HWIntro:Destroy()
         print([[
         
      --------------------------------------------------
@@ -1061,7 +1498,7 @@ print([[
                         New SX Fe Admin                 
                      Made by tubers93#4764        
             "Inspired" by Digitality's Proton Admin
-              Version 3.0.0 Fe Script Admin Script
+              Version 3.0.9 Fe Script Admin Script
                        Say cmds to begin    
                        
         =============================================
@@ -1070,3 +1507,4 @@ print([[
      --------------------------------------------------
 ]])
 
+-- Synapse X Fan
