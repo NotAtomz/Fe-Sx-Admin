@@ -83,13 +83,13 @@ H.TextWrapped = true
 
 W.Archivable = false
 W.Parent = HWIntro
-W.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+W.BackgroundColor3 = Color3.new(1.00, 1.00, 2.00)
 W.BorderSizePixel = 0
 W.Position = UDim2.new(0.497982204, 0, 0.454700857, 0)
 W.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
 W.Font = Enum.Font.GothamBold
 W.Text = "FE"
-W.TextColor3 = Color3.new(1, 1, 1)
+W.TextColor3 = Color3.new(0, 0, 0)
 W.TextScaled = true
 W.TextSize = 14
 W.TextWrapped = true
@@ -578,6 +578,18 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
+        
+        elseif spaceSplit[1] == "to2" or spaceSplit[1] == "goto2" then
+            local target = getPlr(tostring(spaceSplit[2]):lower())
+        
+        getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
+        
+        local attWeld = attachTool(tool,CFrame.new(-1.5, -(200 - (tool.Handle.Size.Y/2)), 0))
+        workspace.CurrentCamera.CameraSubject = target.Character.Humanoid
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
     elseif spaceSplit[1] == "control" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -594,6 +606,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
     elseif spaceSplit[1] == "uncontrol" then
         if getChar()["Right Arm"]:FindFirstChild("RightGrip") then
             getChar()["Right Arm"]:FindFirstChild("RightGrip"):Destroy()
@@ -605,7 +618,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == "chatscript" then
         wait(0.5)
        Chat("This Player Is Using A FE Admin Script Which You Can Buy At tubers93#4764 pt")
-       Chat("Also This Script Has 84 Commands! Script Version Is 3.0.9")
+       Chat("Also This Script Has 86 Commands! Script Version Is 3.0.9")
       
     elseif spaceSplit[1] == "freeze" then
         plr.Character = nil
@@ -634,6 +647,25 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
+        elseif spaceSplit[1] == "side"  or spaceSplit[1] == "nextto"  then
+        local target = getPlr(tostring(spaceSplit[2]):lower())
+        local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
+        if target == nil or tool == nil then return end
+        for i,v in pairs(getChar().Humanoid:GetPlayingAnimationTracks()) do
+            v:Stop()
+        end
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://182393478"
+        local k = getChar().Humanoid:LoadAnimation(anim)
+        k:Play(0)
+        k:AdjustSpeed(0)
+        tool.Handle.CanCollide = false
+        attachTool(tool,CFrame.new(4,-1,0) * CFrame.Angles(math.rad(-90),0,0))
+        target.Character.Humanoid.PlatformStand = true
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
         elseif spaceSplit[1] == "longhold"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -668,6 +700,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
     elseif spaceSplit[1] == "cuff"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -685,6 +718,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
+        
+        
     elseif spaceSplit[1] == "backpack"  then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
@@ -1159,7 +1194,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  83 Commands (Prefix = No Prefix):
+        |  86 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -1229,6 +1264,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    SCRIPT DELETED
         |    unnetlag [target]
         |    goto [target]
+        |    goto2 [target] -- for players that goto/to wont work with
+        |    to2 [targer]
         |    to [target]
         |    noclip
         |    ?sit [target]
@@ -1373,13 +1410,13 @@ H.TextWrapped = true
 
 W.Archivable = false
 W.Parent = HWIntro
-W.BackgroundColor3 = Color3.new(1.00, 0.00, 0.00)
+W.BackgroundColor3 = Color3.new(1.00, 1.00, 2.00)
 W.BorderSizePixel = 0
 W.Position = UDim2.new(0.497982204, 0, 0.454700857, 0)
 W.Size = UDim2.new(0.0855528638, 0, 0.162393168, 0)
 W.Font = Enum.Font.GothamBold
 W.Text = "FE"
-W.TextColor3 = Color3.new(1, 1, 1)
+W.TextColor3 = Color3.new(0, 0, 0)
 W.TextScaled = true
 W.TextSize = 14
 W.TextWrapped = true
