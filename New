@@ -1,51 +1,6 @@
-print([[
-       
-     --------------------------------------------------
-     
-        =============================================
-        |||||||||||||||||||||||||||||||||||||||||||||
-        =============================================
-        
-                       ooo OOO OOO ooo                 
-                   oOO                 OOo             
-               oOO                         OOo         
-            oOO                               OOo      
-          oOO            ___________            OOo    
-        oOO             |\                       OOo   
-       oOO              | \                       OOo  
-      oOO               |  \                       OOo 
-     oOO                |   \                       OOo
-     oOO                |____\______                OOo
-     oOO                      \     |               OOo
-     oOO                       \    |               OOo
-     oOO                        \   |               OOo
-      oOO                        \  |              OOo 
-       oOO                        \ |             OOo  
-        oOO              __________\|            OOo   
-          oOO                                   OOo    
-            oO                                OOo      
-               oOO                         OOo         
-                   oOO                 OOo             
-                       ooo OOO OOO ooo   
-                       
-        =============================================
-        |||||||||||||||||||||||||||||||||||||||||||||
-        =============================================                  
-                       
-      We Are Sorry But The Script Will Be Down For Now 
-      We Will Bring It Up It May Take A Hour So Please
-            Wait Untill We Bring It Back Up
-            
-     --------------------------------------------------
-]])
 
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Error Service Not Found";
 	Text = "Script Has Been Disabled As It May Have Been Leaked!";
 })
 
-function Chat(Message)
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
-end
-
-Chat("Script Disabled As It May Have Been Leaked!")
