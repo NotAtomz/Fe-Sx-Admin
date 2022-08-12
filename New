@@ -43,3 +43,9 @@ game.StarterGui:SetCore("SendNotification", {
 	Title = "Error Service Not Found";
 	Text = "Script Has Been Disabled As It May Have Been Leaked!";
 })
+
+function Chat(Message)
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
+end
+
+Chat("Script Disabled As It May Have Been Leaked!
