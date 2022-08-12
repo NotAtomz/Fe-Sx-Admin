@@ -618,7 +618,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == "chatscript" then
         wait(0.5)
        Chat("This Player Is Using A FE Admin Script Which You Can Buy At tubers93#4764 pt")
-       Chat("Also This Script Has 86 Commands! Script Version Is 3.0.9")
+       Chat("Also This Script Has 88 Commands! Script Version Is 3.0.9")
       
     elseif spaceSplit[1] == "freeze" then
         plr.Character = nil
@@ -1194,7 +1194,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |||||||||||||||||||||||||||||||||||||||||||||
         =============================================
         |
-        |  86 Commands (Prefix = No Prefix):
+        |  88 Commands (Prefix = No Prefix):
         |
         =============================================
         |||||||||||||Warnings And Lables|||||||||||||
@@ -1216,6 +1216,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         |    void [target]
         |    +inbody [target]
         |    +cliam [target]
+        |    side [target]
+        |    nextto [target]
         |    hold [target]
         |    unhold
         |    force [target]
