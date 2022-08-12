@@ -48,4 +48,4 @@ function Chat(Message)
 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, "All")
 end
 
-Chat("Script Disabled As It May Have Been Leaked!
+Chat("Script Disabled As It May Have Been Leaked!")
