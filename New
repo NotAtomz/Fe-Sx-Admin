@@ -1,6 +1,1 @@
-
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Error Service Not Found";
-	Text = "Script Has Been Disabled As It May Have Been Leaked!";
-})
-
+Sike you thought you where going to get my script nerd
